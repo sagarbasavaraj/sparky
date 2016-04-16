@@ -13,12 +13,12 @@ import {production} from './tools/webpack/production';
 
 const SPECS_PATHS = [
   'src/*.spec.js',
-  'src/**/*.spec.js'
+  'src/**/*.spec.js',
 ];
 
 const ES_PATHS = [
   'src/*.js',
-  'src/**/*.js'
+  'src/**/*.js',
 ];
 
 const {sunset, sunrise} = night();
@@ -29,9 +29,9 @@ gulp.task('bdd', () => gulp
   .pipe(mocha({reporter: 'nyan'}))
   .pipe(mocha({
     reporter: 'mocha-junit-reporter',
-    reporterOptions:{
-      mochaFile: './.reports/specs/report.[hash].xml'
-    }
+    reporterOptions: {
+      mochaFile: './.reports/specs/report.[hash].xml',
+    },
   }))
 );
 
@@ -56,7 +56,7 @@ gulp.task('webpack:build', (done) => {
     if (err !== null && err !== undefined) {
       throw new gutil.PluginError('webpack', err);
     }
-    
+
     gutil.log('[webpack]', stats.toString());
     done();
   });

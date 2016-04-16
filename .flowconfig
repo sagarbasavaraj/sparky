@@ -1,7 +1,6 @@
 [ignore]
 .*/node_modules/.*
 .*/tools/webpack/.*
-.*/src/.*\.spec\.js
 
 [include]
 
