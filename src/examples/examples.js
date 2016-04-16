@@ -1,6 +1,7 @@
 /* @flow */
 import React from 'react';
 import {DataGrid} from '../datagrid';
+import {Header} from '../datagrid/renderers';
 
 const simpleDataProvider = [
   {name: 'Alice', age: 31, country: 'USA'},
@@ -10,11 +11,13 @@ const simpleDataProvider = [
   {name: 'Elisa', age: 35, country: 'Uganda'},
 ];
 
-export const Examples = () => (
+const headerDataAlpha = {label: 'Header Alpha'};
+
+export const Examples = (): Object => (
   <div>
     <div className="example item">
       <header>
-        <h1 className="title">Simple Data Grid Example!</h1>
+        <h2 className="title">Simple Data Grid Example!</h2>
       </header>
       <aside>
         <p>Documentation and explanation!</p>
@@ -37,6 +40,17 @@ export const Examples = () => (
             sortable
           />
         </DataGrid>
+      </article>
+    </div>
+    <div className="example item">
+      <header>
+        <h2 className="title">Default Header Renderer Example</h2>
+      </header>
+      <aside>
+        <p>Documentation and explanation!</p>
+      </aside>
+      <article>
+        <Header headerData={headerDataAlpha} />
       </article>
     </div>
   </div>

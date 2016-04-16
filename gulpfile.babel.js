@@ -45,8 +45,9 @@ gulp.task('lint', () => gulp
 gulp.task('types', () => gulp
   .src(ES_PATHS)
   .pipe(flow({
-    all: true,
+    all: false,
     beep: true,
+    declarations: './flow',
   }))
 );
 

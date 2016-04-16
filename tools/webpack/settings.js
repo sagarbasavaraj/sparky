@@ -17,6 +17,7 @@ export const settings = () => ({
     {
       test: /\.js$/,
       loaders: [
+        'babel',
         'eslint-loader',
         // 'flowcheck',
       ],
