@@ -1,6 +1,7 @@
 {
   "presets": ["es2016", "stage-0", "react"],
   "plugins": [
+    ["typecheck", {"disable": {"production": true}}],
     "transform-flow-strip-types",
     "syntax-flow",
     "transform-decorators-legacy",

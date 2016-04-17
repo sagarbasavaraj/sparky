@@ -7,7 +7,7 @@
   "custom_assertions_path": "",
   "page_objects_path": "",
   "globals_path": "",
-  
+
   "selenium": {
     "start_process": true,
     "server_path": "./tools/nightwatch/lib/selenium-server-standalone.jar",
@@ -18,7 +18,7 @@
       "webdriver.chrome.driver": "./tools/nightwatch/lib/chromedriver"
     }
   },
-  
+
   "test_settings": {
     "default": {
       "launch_url": "http://localhost",

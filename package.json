@@ -5,10 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "ci": "node node_modules/gulp/bin/gulp.js ci",
+    "lint": "node node_modules/gulp/bin/gulp.js lint",
+    "typecheck": "node node_modules/gulp/bin/gulp.js typecheck",
+    "e2e": "node node_modules/gulp/bin/gulp e2e",
     "test": "node node_modules/gulp/bin/gulp.js",
-    "start": "node tools/webpack/start.babel.js --require babel-polyfill",
-    "storybook": "start-storybook -p 9001",
+    "start": "node tools/webpack/start.babel.js",
+    "styleguide": "start-storybook -p 7001",
     "build": "npm run clean && node node_modules/gulp/bin/gulp.js build"
   },
   "repository": {
@@ -21,6 +23,10 @@
     "debug": "^2.2.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.2.4",
+    "react-router-redux": "^4.0.2",
+    "redux": "^3.4.0",
     "seamless-immutable": "^6.0.0"
   },
   "devDependencies": {

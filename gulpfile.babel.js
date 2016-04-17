@@ -5,11 +5,14 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 import mocha from 'gulp-mocha';
 import eslint from 'gulp-eslint';
-import flow from 'gulp-flowtype';
+// import flow from 'gulp-flowtype';
 import shell from 'gulp-shell';
 import webpack from 'webpack';
 import {night} from './tools/gulp/nightserver';
 import {production} from './tools/webpack/production';
+import debug from 'debug';
+
+const log = debug('gulp');
 
 const SPECS_PATHS = [
   'src/*.spec.js',
@@ -42,14 +45,19 @@ gulp.task('lint', () => gulp
   .pipe(eslint.failAfterError())
 );
 
-gulp.task('types', () => gulp
-  .src(ES_PATHS)
-  .pipe(flow({
-    all: false,
-    beep: true,
-    declarations: './flow',
-  }))
-);
+// gulp.task('typecheck', () => gulp
+//   .src(ES_PATHS)
+//   .pipe(flow({
+//     all: false,
+//     beep: true,
+//   }))
+// );
+
+gulp.task('typecheck', () => shell.task([
+  // 'node node_modules/flow-bin/cli.js',
+  // 'echo',
+  'say "Typecheck"',
+], (...rest) => console.log('typecheck', rest)));
 
 // Build related tasks
 gulp.task('webpack:build', (done) => {
@@ -77,6 +85,7 @@ gulp.task('sunrise', ['night'], sunrise);
 
 gulp.task('e2e', ['sunrise', 'night', 'sunset']);
 gulp.task('build', ['webpack:build', 'copy:html']);
-gulp.task('test', ['bdd', 'lint', 'types']);
-gulp.task('ci', ['test', 'e2e']);
+gulp.task('style', ['lint', 'typecheck']);
+gulp.task('specs', ['bdd']);
+gulp.task('test', ['bdd', 'e2e']);
 gulp.task('default', ['test']);

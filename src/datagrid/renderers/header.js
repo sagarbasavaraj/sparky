@@ -1,5 +1,4 @@
 /* @flow */
-import './header.styl';
 import React, {PropTypes} from 'react';
 import type {HeaderProps} from './types';
 

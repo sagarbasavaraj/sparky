@@ -1,17 +1,14 @@
 /* @flow */
 import React, {Component, Element, PropTypes} from 'react';
-import type {
-  DataGridState,
-  DataGridProps,
-  DataGridDefaultProps,
-} from './types';
+import type {DataGridState, DataGridProps} from './types';
+
 const processColumnHeaders = (): Array<Element> => [
   <div key={1}>Header1</div>,
   <div key={2}>Header2</div>,
   <div key={3}>Header3</div>,
 ];
 
-export class DataGrid extends Component<DataGridState, DataGridProps, DataGridDefaultProps> {
+export class DataGrid extends Component<void, DataGridProps, DataGridState> {
   static propTypes = {
     dataProvider: PropTypes.array.isRequired,
     children: PropTypes.arrayOf(PropTypes.element),

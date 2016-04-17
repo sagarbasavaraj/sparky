@@ -1,14 +1,16 @@
 import './resets.styl';
 import React from 'react';
 import {render} from 'react-dom';
-import {Examples} from './examples';
+import {App} from './app';
 
 const appContainer = document.getElementById('app-container');
 
 if (appContainer) {
-  render(<Examples />, appContainer);
+  render(<App />, appContainer);
 } else {
   /* eslint-disable no-console */
-  console.warn('Unable to find application container');
+  console.warn('main.js is unable to find application container.');
+  console.warn('If you are running production or development app then worry');
+  console.warn('If this is components, styleguide or storybook this behavior is expected');
   /* eslint-enable no-console */
 }
