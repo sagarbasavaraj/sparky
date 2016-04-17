@@ -1,7 +1,6 @@
 export type ButtonProps = {
-  icon: ?string,
   label: string,
   onClick: Function,
-  toggleEnabled: boolean,
+  toggle: boolean,
   toggled: boolean,
 };

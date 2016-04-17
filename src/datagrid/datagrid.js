@@ -2,12 +2,6 @@
 import React, {Component, Element, PropTypes} from 'react';
 import type {DataGridState, DataGridProps} from './types';
 
-const processColumnHeaders = (): Array<Element> => [
-  <div key={1}>Header1</div>,
-  <div key={2}>Header2</div>,
-  <div key={3}>Header3</div>,
-];
-
 export class DataGrid extends Component<void, DataGridProps, DataGridState> {
   static propTypes = {
     dataProvider: PropTypes.array.isRequired,
@@ -16,17 +10,16 @@ export class DataGrid extends Component<void, DataGridProps, DataGridState> {
 
   constructor(): void {
     super();
-    this.state = {
-      gridDataProvider: [],
-    };
+    this.state = {gridDataProvider: []};
   }
 
   render(): Element {
     const {dataProvider, children} = this.props;
-    // const columnHeaders = processColumnHeaders(children);
 
     if (dataProvider && children) {
-      return <div>{processColumnHeaders()}</div>;
+      return <div>DataProvider and Children</div>;
+    } else if (dataProvider) {
+      return <div>DataProvider only</div>;
     }
 
     return <div>Invalid DataGrid</div>;

@@ -5,6 +5,7 @@
   ],
   "extends": "airbnb",
   "rules": {
+    "no-unused-vars": ["warn"],
     "new-cap": ["error", {"capIsNewExceptions": ["Immutable"]}],
     "object-curly-spacing": ["error", "never"]
   },
