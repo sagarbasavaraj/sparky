@@ -9,6 +9,9 @@
     "new-cap": ["error", {"capIsNewExceptions": ["Immutable"]}],
     "object-curly-spacing": ["error", "never"]
   },
+  "globals": {
+    "expect": true
+  },
   "settings": {
   },
   "env": {
