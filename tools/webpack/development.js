@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+// import FlowStatusWebpackPlugin from 'flow-status-webpack-plugin';
 import {settings} from './settings';
 
 export const development = ({entry}) => {
@@ -15,6 +16,7 @@ export const development = ({entry}) => {
     output: s.output('dist'),
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
+      // new FlowStatusWebpackPlugin(),
       new webpack.NoErrorsPlugin(),
       new webpack.DefinePlugin({
         __VERSION__: JSON.stringify(0),

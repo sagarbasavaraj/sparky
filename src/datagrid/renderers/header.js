@@ -1,26 +1,18 @@
 /* @flow */
-import React, {Element, PropTypes} from 'react';
+import './header.styl';
+import React, {PropTypes} from 'react';
+import type {HeaderProps} from './types';
 
-// type HeaderLabel = string;
-//
-// type HeaderData = {
-//   label: HeaderLabel,
-// };
-
-const Header = ({headerData: {label}}: Object): Element => (
+const Header = ({headerData}: HeaderProps): any => (
   <div className="datagrid column header">
-    <span>{label}</span>
+    <span>{headerData.label}</span>
   </div>
 );
 
 Header.propTypes = {
   headerData: PropTypes.shape({
-    label: PropTypes.oneOf([
-      PropTypes.object,
-      PropTypes.string,
-      PropTypes.func,
-    ]).isRequired,
-  }).isRequired,
+    label: PropTypes.string.isRequired,
+  }),
 };
 
 export {Header};

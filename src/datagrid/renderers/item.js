@@ -1,29 +1,16 @@
 /* @flow */
-import React, {Element, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
+import type {ItemProps} from './types';
 
-type ItemLabel = string;
-
-type ItemData = {
-  label: ItemLabel
-};
-
-type ItemProps = {
-  itemData: ItemData,
-};
-
-const Item = ({itemData: {label}}: ItemProps): Element => (
+const Item = ({itemData}: ItemProps): any => (
   <div className="datagrid item renderer">
-    <span>{label}</span>
+    <span>{itemData.label}</span>
   </div>
 );
 
 Item.propTypes = {
   itemData: PropTypes.shape({
-    label: PropTypes.oneOf([
-      PropTypes.object,
-      PropTypes.string,
-      PropTypes.func,
-    ]).isRequired,
+    label: PropTypes.string.isRequired,
   }).isRequired,
 };
 

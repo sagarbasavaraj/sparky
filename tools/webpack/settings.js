@@ -1,11 +1,17 @@
-// const path = require('path');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const styleLoader = ExtractTextPlugin.extract('css!stylus');
-
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const styleLoader = ExtractTextPlugin.extract('css!stylus');
+export const styleLoader = (production) => {
+  const result = {test: /\.styl$/};
+
+  if (production) {
+    result.loader = ExtractTextPlugin.extract('css!stylus');
+  } else {
+    result.loader = 'style-loader!css-loader!stylus-loader';
+  }
+
+  return result;
+};
 
 export const settings = () => ({
   output: (dist) => ({
@@ -26,10 +32,7 @@ export const settings = () => ({
     },
   ]),
   loaders: (production) => ([
-    {
-      test: /\.styl$/,
-      loader: production ? styleLoader : 'style-loader!css-loader!stylus-loader',
-    },
+    styleLoader(production),
     {
       test: /\.js$/,
       loaders: [

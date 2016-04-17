@@ -1,23 +1,14 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "react",
-    "flowtype"
+    "react"
   ],
   "extends": "airbnb",
   "rules": {
     "new-cap": ["error", {"capIsNewExceptions": ["Immutable"]}],
-    "object-curly-spacing": ["error", "never"],
-    "flowtype/require-parameter-type": ["error"],
-    "flowtype/require-return-type": ["error", "always", {"annotateUndefined": "always"}],
-    "flowtype/space-after-type-colon": ["error", "always"],
-    "flowtype/space-before-type-colon": ["error", "never"],
-    "flowtype/type-id-match": ["error", "([a-z]+)"]
+    "object-curly-spacing": ["error", "never"]
   },
   "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
-    }
   },
   "env": {
     "browser": true,
