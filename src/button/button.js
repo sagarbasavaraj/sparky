@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import type {ButtonProps} from './button.types';
 
 const resolveClickHandler = (handler, toggleEnabled, toggled) => {
   if (toggleEnabled) {
@@ -17,7 +16,7 @@ const resolveClickHandler = (handler, toggleEnabled, toggled) => {
   };
 };
 
-const Button = ({label, onClick, toggle, toggled}: ButtonProps) => {
+const Button = ({label, onClick, toggle, toggled}) => {
   // let iconElement = false;
   let clickHandler = resolveClickHandler(onClick, toggle, toggled);
   const className = toggled ? 'sparky toggled button' : 'sparky button';

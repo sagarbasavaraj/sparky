@@ -5,12 +5,16 @@
   ],
   "extends": "airbnb",
   "rules": {
-    "no-unused-vars": ["warn"],
+    "max-len": ["error", 100, { "ignoreComments": true }],
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+    "no-unused-vars": ["error", {"argsIgnorePattern": "[event|payload]"}],
     "new-cap": ["error", {"capIsNewExceptions": ["Immutable"]}],
     "object-curly-spacing": ["error", "never"]
   },
   "globals": {
-    "expect": true
+    "expect": true,
+    "__ENVIRONMENT__": true,
+    "__VERSION__": true
   },
   "settings": {
   },

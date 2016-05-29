@@ -5,6 +5,7 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 import mocha from 'gulp-mocha';
 import eslint from 'gulp-eslint';
+import replace from 'gulp-replace';
 // import flow from 'gulp-flowtype';
 import shell from 'gulp-shell';
 import webpack from 'webpack';
@@ -28,7 +29,10 @@ const {sunset, sunrise} = night();
 
 // Basic testing related tasks.
 gulp.task('bdd', () => gulp
-  .src(SPECS_PATHS)
+  .src(['src/**/*.js'])
+  .pipe(replace('__ENVIRONMENT__', JSON.stringify('test')))
+  .pipe(replace('__VERSION__', JSON.stringify('0.0.1')))
+  // .pipe(gulp.dest('./build'))
   .pipe(mocha({reporter: 'nyan'}))
   .pipe(mocha({
     reporter: 'mocha-junit-reporter',
@@ -44,20 +48,6 @@ gulp.task('lint', () => gulp
   .pipe(eslint.format())
   .pipe(eslint.failAfterError())
 );
-
-// gulp.task('typecheck', () => gulp
-//   .src(ES_PATHS)
-//   .pipe(flow({
-//     all: false,
-//     beep: true,
-//   }))
-// );
-
-gulp.task('typecheck', () => shell.task([
-  // 'node node_modules/flow-bin/cli.js',
-  // 'echo',
-  'say "Typecheck"',
-], (...rest) => console.log('typecheck', rest)));
 
 // Build related tasks
 gulp.task('webpack:build', (done) => {
@@ -83,9 +73,10 @@ gulp.task('night', ['sunset'], shell.task([
 ]));
 gulp.task('sunrise', ['night'], sunrise);
 
+gulp.task('style', ['lint']);
 gulp.task('e2e', ['sunrise', 'night', 'sunset']);
-gulp.task('build', ['webpack:build', 'copy:html']);
-gulp.task('style', ['lint', 'typecheck']);
-gulp.task('specs', ['bdd']);
 gulp.task('test', ['bdd', 'e2e']);
+
+gulp.task('build', ['webpack:build', 'copy:html']);
+
 gulp.task('default', ['test']);

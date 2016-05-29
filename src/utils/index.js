@@ -1,1 +1,3 @@
-export {asyncAction} from './asyncaction';
+import Environment from './environment/environment';
+
+export {Environment};

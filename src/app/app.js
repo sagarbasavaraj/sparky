@@ -1,6 +1,6 @@
 import React from 'react';
-// import {DataGrid} from '../datagrid';
 import {Button} from '../button';
+import {Environment} from '../utils';
 
 const App = () => (
   <div>
@@ -9,6 +9,7 @@ const App = () => (
     </header>
     {/* <DataGrid dataProvider={[]} /> */}
     <Button label="Button Yay" onClick={() => null} />
+    <Environment />
   </div>
 );
 

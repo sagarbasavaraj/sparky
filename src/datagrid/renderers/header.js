@@ -1,8 +1,7 @@
 /* @flow */
 import React, {PropTypes} from 'react';
-import type {HeaderProps} from './types';
 
-const Header = ({headerData}: HeaderProps): any => (
+const Header = ({headerData}) => (
   <div className="datagrid column header">
     <span>{headerData.label}</span>
   </div>

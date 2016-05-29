@@ -1,12 +1,13 @@
-import './resets.styl';
 import React from 'react';
 import {render} from 'react-dom';
 import {App} from './app';
 
-const appContainer = document.getElementById('app-container');
-
-if (appContainer) {
-  render(<App />, appContainer);
+if (document !== null && document !== undefined) {
+  const appContainer = document.getElementById('app-container');
+  
+  if (appContainer) {
+    render(<App />, appContainer);  
+  }
 } else {
   /* eslint-disable no-console */
   console.warn('main.js is unable to find application container.');

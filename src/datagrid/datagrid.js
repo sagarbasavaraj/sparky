@@ -1,6 +1,5 @@
 /* @flow */
 import React, {Component, Element, PropTypes} from 'react';
-import type {DataGridState, DataGridProps} from './types';
 
 export class DataGrid extends Component<void, DataGridProps, DataGridState> {
   static propTypes = {
