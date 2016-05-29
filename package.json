@@ -6,12 +6,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "style": "node node_modules/gulp/bin/gulp.js lint",
-    "e2e": "node node_modules/gulp/bin/gulp e2e",
-    "bdd": "node node_modules/gulp/bin/gulp bdd",
-    "test": "node node_modules/karma/bin/karma start ./karma.babel.js --require babel-polyfill",
+    "test": "node --require babel-polyfill node_modules/karma/bin/karma start ./karma.babel.js",
     "start": "node tools/webpack/start.babel.js",
-    "styleguide": "start-storybook -p 7001",
-    "build": "npm run clean && node node_modules/gulp/bin/gulp.js build"
+    "styleguide": "start-storybook -p 7001"
   },
   "repository": {
     "type": "git",
