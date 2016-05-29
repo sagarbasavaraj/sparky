@@ -1,12 +1,9 @@
 import React from 'react';
 import {Button} from './button';
 import {shallow} from 'enzyme';
-import 'sinon';
 import chai, {expect} from 'chai';
-import sinonChai from 'sinon-chai';
 import chaiEnzyme from 'chai-enzyme';
 
-chai.use(sinonChai);
 chai.use(chaiEnzyme());
 
 const noop = () => null;
