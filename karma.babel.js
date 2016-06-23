@@ -7,7 +7,7 @@ const test = require('./tools/webpack').test;
 const runner = (config) => {
   return config.set({
     browsers: [ 'Chrome' ], //run in Chrome
-    singleRun: true, //just run once by default
+    singleRun: false, //just run once by default
     frameworks: [ 'mocha' ], //use the mocha test framework
     files: [
       'src/**/*.spec.js',

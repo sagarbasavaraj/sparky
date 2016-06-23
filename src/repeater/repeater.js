@@ -11,8 +11,14 @@ Repeater.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
-  parent: PropTypes.element.isRequired,
-  item: PropTypes.element.isRequired,
+  parent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]).isRequired,
+  item: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]).isRequired,
 };
 
 export default Repeater;
